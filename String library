@@ -1,0 +1,133 @@
+class Main{
+     function int len(String str){
+        return (Memory.peek(str));
+     }
+     function String appendChar(String chars,char c) {
+        var int length,i,j,k;
+        var String s;
+        var Array arr;
+        let i = 0;
+        let j = 2;
+        let k=2;
+        let length = Main.len(chars);
+        let arr = Array.new(length);
+        let s = String.new((length+1));
+        while(i<length){
+         let arr[i] = chars[i+2];
+         let i = i + 1;
+        }
+        while(j<(length+2)){  
+         let s[j] = arr[j-2];
+         let j = j + 1;
+        }
+        let s[length+2] = c;
+        do Output.println();
+        while(k<(length+3)){
+        do Output.printChar(s[k]);
+        let k=k+1;
+        }
+        return s;
+    }
+    function void cmp(String s1, String s2){
+    var int a,b,i,o;
+    let i = 2;
+    let a = Main.len(s1);
+    let b = Main.len(s2);
+
+    if(~(a=b)){
+     let o = 0;
+    }
+    if(a=b){
+    while(i<(a+2)){
+     if(s1[i]=s2[i]){
+      let o = 1;
+     }
+     else{
+     let o = 0;
+     }
+     let i = i+1;
+     }
+    }
+    if(o=0){
+    do Output.printString("Strings are not equal");
+    }
+    if(o=1){
+    do Output.printString("Strings are equal");
+    }
+    return;
+    }
+     function void main(){ 
+     var String str;
+     var int opt,o,ou;
+     var char ch;
+     var String str2;
+     let str=Keyboard.readLine("Enter the String : ");
+     do Output.println();
+     do Output.printString("String Operation : ");
+     do Output.println();
+     do Output.printString("strlen    (1) ");
+     do Output.println();
+     do Output.printString("strappend (2) ");
+     do Output.println();
+     do Output.printString("strcmp    (3) ");
+     do Output.println();
+     do Output.printString("Help    (4) ");
+     do Output.println();
+     let opt=Keyboard.readInt("Enter the operation ? ");
+     if (opt=1){
+     do Output.println();
+     do Output.printString("Length of the String : ");
+     do Output.printInt(Main.len(str));
+     }
+     else{
+     if (opt=2){
+     do Output.println();
+     do Output.printString("Enter the character to append : ");
+      let ch=Keyboard.readChar();
+      let str=Main.appendChar(str,ch);
+      do Output.println();
+     }
+     if (opt=3){
+     let str2=Keyboard.readLine("Enter the another string to compare : ");
+     do Output.println();
+     do Main.cmp(str,str2);
+     }
+     if (opt=4){
+     do Output.printString("strlen() : This function is used to find the length of a string.");
+     do Output.println();
+     do Output.printString("strappend() : This function is used to append a character i.e it is used to add a character to our existing string.");
+     do Output.println();
+     do Output.printString("strcmp() : This function is used to compare the 2 strings by comparing each character in them.");
+     do Output.println();
+     do Output.printString("to exit    (1) ");
+     do Output.println();
+     do Output.printString("to do operation    (2) ");
+     do Output.println();
+     let ou=Keyboard.readInt("Enter the operation ? ");
+     if (ou=2){
+     let o=Keyboard.readInt("Enter the operation ? ");
+       if (o=1){
+     do Output.println();
+     do Output.printString("Length of the String : ");
+     do Output.printInt(Main.len(str));
+     }
+     else{
+     if (o=2){
+     do Output.println();
+     do Output.printString("Enter the character to append : ");
+      let ch=Keyboard.readChar();
+      let str=Main.appendChar(str,ch);
+      do Output.println();
+     }
+     if (o=3){
+     let str2=Keyboard.readLine("Enter the another string to compare : ");
+     do Output.println();
+     do Main.cmp(str,str2);
+     }
+      }
+     }
+     }
+     }
+     return;
+     }                           
+}
